@@ -11,10 +11,10 @@ export default function KalendardanCheklist({navigation}) {
     <ScrollView>
     <View style={{padding:10,  }}>
 
-    <TouchableNativeFeedback>
+    <TouchableNativeFeedback onPress={() => navigation.navigate("Kalender")}>
         <View style={{padding:10, borderRadius:10, flexDirection:"row", borderWidth:1, justifyContent:'center'}}>
         <View style={{justifyContent:'center', marginRight:20, }}>
-            <Text style={{fontFamily:fonts.primary[600], fontSize:32, }}>Jadwal</Text>
+            <Text style={{fontFamily:fonts.primary[600], fontSize:32, }}>Kalender</Text>
         </View>
 
             <View>
@@ -25,7 +25,7 @@ export default function KalendardanCheklist({navigation}) {
     <MyGap jarak={20}/>
 
     
-    <TouchableNativeFeedback>
+    <TouchableNativeFeedback onPress={() => navigation.navigate("Cheklist")}>
         <View style={{padding:10, borderRadius:10, flexDirection:"row", borderWidth:1, justifyContent:'center'}}>
 
             <View style={{marginRight:20, }}>

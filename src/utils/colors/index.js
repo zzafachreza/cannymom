@@ -1,6 +1,6 @@
 export const colors = {
   primary: '#793C5B',
-  secondary: '#FDDD7A',
+  secondary: '#FFD0AE',
   tertiary: '#92642A',
   foourty: '#146C94',
   background: '#FFFFFF',
@@ -21,5 +21,7 @@ export const colors = {
   kuning: '#D7A43A',
   merah: '#B9454A',
   loading: '#793C5B',
-  tekscolor: '#793C5B'
+  tekscolor: '#793C5B',
+  background: '#EDEDED',
+  
 };

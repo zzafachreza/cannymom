@@ -106,13 +106,13 @@ export default function LoginPage({ navigation }) {
       <View style={{padding:10,}}>
 
       <View style={{alignContent:'center', alignItems:"center"}}>
-        <Image style={{height:300, width:300}} source={require('../../assets/logo.png')}/>
+        <Image style={{height:216, width:237}} source={require('../../assets/logo.png')}/>
       </View>
 
 
-        <View style={{marginTop:0}}>
+        <View style={{marginTop:10}}>
           <Text style={{fontFamily:fonts.primary[600], textAlign:"center",
-          color:colors.tekscolor, fontSize:15}}>Masuk</Text>
+          color:colors.tekscolor, fontSize:15}}>Aplikasi Kesehatan Ibu{'\n'}berbasis Fiqih Kasyifatus Saja</Text>
         </View>
   
             <MyGap jarak={0}/>
@@ -157,8 +157,8 @@ export default function LoginPage({ navigation }) {
             <View style={{padding:20}}>
             <TouchableNativeFeedback onPress={() => navigation.navigate('Register')}>
                     <View>
-                        <Text style={{fontFamily:fonts.primary[400], textAlign:'center'}}>Belum memiliki akun?<Text style={{
-                            color:colors.white,  fontFamily:fonts.primary[600]
+                        <Text style={{fontFamily:fonts.primary[400], textAlign:'center', color:colors.tekscolor}}>Belum memiliki akun?<Text style={{
+                            color:colors.tekscolor,  fontFamily:fonts.primary[600]
                         }}> Daftar</Text> </Text>
                     </View>
                 </TouchableNativeFeedback>

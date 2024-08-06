@@ -61,7 +61,7 @@ export default function Splash({ navigation }) {
         backgroundColor:colors.white
       
       }}>
-     <ImageBackground source={require('../../assets/bgsplash.png')}   style={{
+     <ImageBackground source={require('../../assets/bguntuksplash.png')}   style={{
       flex:1,
       width:'100%',
       height:'100%',
@@ -73,16 +73,16 @@ export default function Splash({ navigation }) {
         source={require('../../assets/logo.png')}
           resizeMode="contain"
           style={{
-            width: 407,
-            height: 407,
+            width: 397,
+            height: 397,
            
           }}
         />
         <Animated.Text style={{
-          fontFamily: fonts.secondary[800],
+          fontFamily: fonts.primary[600],
           fontSize: MyDimensi/4,
           color: colors.loading,
-          marginTop: 0,
+          marginTop: 10,
           marginBottom: text,
           textAlign: 'center',
         }}>Aplikasi Kesehatan Ibu{'\n'}Berbasis Fiqih Kasyifatus Saja</Animated.Text>

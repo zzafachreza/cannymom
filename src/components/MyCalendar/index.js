@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { colors } from '../../utils/colors';
-import { MyDimensi, fonts } from '../../utils/fonts';
 import DatePicker from 'react-native-datepicker';
 import moment from 'moment';
+import { colors, fonts } from '../../utils';
 
 export default function MyCalendar({
   label,
@@ -20,7 +19,7 @@ export default function MyCalendar({
     <>
       {label && (
         <View style={styles.labelContainer}>
-          <Icon type="ionicon" name={iconname} color={iconColor} size={MyDimensi / 4} />
+          <Icon type="ionicon" name={iconname} color={iconColor} size={20} />
           <Text style={[styles.label, styleLabel]}>{label}</Text>
         </View>
       )}
@@ -31,8 +30,6 @@ export default function MyCalendar({
           date={value}
           mode="date"
           placeholder={placeholder}
-          
-          
           showIcon={false}
           format="YYYY-MM-DD"
           confirmBtnText="Confirm"
@@ -46,7 +43,7 @@ export default function MyCalendar({
             },
             dateInput: {
               fontFamily: fonts.secondary[400],
-              fontSize: MyDimensi / 4,
+              fontSize: 16,
               textAlign: 'left',
               alignItems: 'flex-start',
               opacity: 0,
@@ -54,7 +51,10 @@ export default function MyCalendar({
               borderWidth: 0,
             },
           }}
-          onDateChange={onDateChange}
+          onDateChange={(date) => {
+            // Call the parent onDateChange prop
+            onDateChange(date);
+          }}
         />
       </View>
     </>
@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
   calendarContainer: {
     backgroundColor: colors.white,
     borderRadius: 10,
-    marginTop: 20,
+    marginTop: 30,
     borderWidth: 1,
     borderColor: '#E7E8EE',
     position: 'relative',
-    marginBottom:0
+    marginBottom: 0,
   },
   dateText: {
     position: 'absolute',
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     top: 15,
     left: 20,
     fontFamily: fonts.secondary[600],
-    fontSize: MyDimensi / 4,
+    fontSize: 16,
     color: colors.tekscolor,
   },
   datePicker: {

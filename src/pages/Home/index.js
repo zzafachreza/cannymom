@@ -62,7 +62,7 @@ export default function Home({ navigation, route }) {
 
       <ScrollView>
         
-    <View style={{padding:20, flexDirection:"row", justifyContent:"space-between", top: -20}}>
+    <View style={{padding:20, flexDirection:"row", justifyContent:"space-between", top: 0}}>
 
 <View style={{justifyContent:'center'}}>
   <Text style={{fontFamily:fonts.primary[600], fontSize:20, color:colors.white}}>Selamat Datang{'\n'}
@@ -70,42 +70,22 @@ export default function Home({ navigation, route }) {
 </View>
 
 <View>
-  <Image style={{height:110, width:110}} source={require('../../assets/logo.png')}/>
+  <Image style={{height:51, width:34}} source={require('../../assets/logohome.png')}/>
 </View>
 
 </View>
 
-        <View style={{ padding: 10 , alignContent:'center', alignItems:'center', top: -50}}>
-          {/* DISINI BAUTKAN ONE SLDIER */}
+        <View style={{ padding: 10 , alignContent:'center', alignItems:'center', top: 0}}>
+         
          <Image style={{width:331, height:190}} source={require('../../assets/sliderdummy.png')}/>
-          {/* END ONE SLDIER */}
+        
         </View>
 
         {/* MENU */}
-        <View style={{padding:20, top: -50}}>
-
+        <View style={{padding:20, top: 0}}>
         <View style={{}}>
-
-        {/* ARTIKEL */}
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('AlarmObat')}>
-          <View  style={{padding:10, backgroundColor:colors.primary, borderRadius:10, flexDirection:"row",
-          justifyContent:"space-evenly", borderBottomWidth:0.60,}}>
-
-          <View style={{left:-35}}>
-            <Image style={{height:84, width:84}} source={require('../../assets/artikel.png')}/>
-          </View>
-
-          <View style={{justifyContent:'center', left:-60}}>
-            <Text style={{fontFamily:fonts.primary[600], fontSize:32, color:colors.tekscolor}}>Artikel</Text>
-          </View>
-
-          </View> 
-        </TouchableWithoutFeedback>
-
-    <MyGap jarak={30}/>
-
-            {/* KALENDAR */}
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('AlarmObat')}>
+      
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('KalendardanCkehlist')}>
           <View  style={{padding:10, backgroundColor:colors.primary, borderRadius:10, flexDirection:"row",
           justifyContent:"space-evenly", borderBottomWidth:0.60,}}>
 
@@ -114,13 +94,44 @@ export default function Home({ navigation, route }) {
           </View>
 
           <View style={{justifyContent:'center', left:-10}}>
-            <Text style={{fontFamily:fonts.primary[600], fontSize:32, color:colors.tekscolor}}>Kalendar &{'\n'}Checklist</Text>
+            <Text style={{fontFamily:fonts.primary[600], fontSize:32, color:colors.white}}>Jadwal &{'\n'}Checklist</Text>
           </View>
 
           </View> 
         </TouchableWithoutFeedback>
 
+
+        <MyGap jarak={30}/>
+
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Artikel')}>
+          <View  style={{padding:10, backgroundColor:colors.primary, borderRadius:10, flexDirection:"row",
+          justifyContent:"space-evenly", borderBottomWidth:0.60,}}>
+
+          <View style={{left:-15}}>
+            <Image style={{height:84, width:84}} source={require('../../assets/artikel.png')}/>
+          </View>
+
+          <View style={{justifyContent:'center', left:-20}}>
+            <Text style={{fontFamily:fonts.primary[600], fontSize:32, color:colors.white}}>Wawasan</Text>
+          </View>
+
+          </View> 
+        </TouchableWithoutFeedback>
      
+            <View style={{padding:10, flexDirection:"row", justifyContent:'space-around', marginTop:20}}>
+              <View>
+                <Text style={{fontFamily:fonts.primary[400], }}>Rujukan dari: </Text>
+              </View>
+
+              <View>
+                <Image style={{width:89, height:23}} source={require('../../assets/kemeskes.png')}/>
+              </View>
+
+              <View>
+                <Image style={{width:49, height:25}} source={require('../../assets/bacaan.png')}/>
+              </View>
+            </View>
+
         </View>
 
       

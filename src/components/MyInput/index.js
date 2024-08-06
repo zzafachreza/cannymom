@@ -98,13 +98,14 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   label: {
-    fontFamily: fonts.secondary[400],
+    fontFamily: fonts.primary[600],
     color: colors.primary,
     left: 0,
     fontSize: 15,
   },
   inputContainer: {
     position: 'relative',
+    marginTop:0
   },
   textInput: {
     borderRadius: 10,
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
     fontSize: MyDimensi / 4,
     fontFamily: fonts.primary[400],
     height: 48,
+   
   },
   eyeIcon: {
     position: 'absolute',

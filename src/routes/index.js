@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { Alert, BackHandler } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Splash, Home, Account, AccountEdit, TeknisiHome, AccountTeknisi, History, Tumbuhanmu, Quiz, TingkatSatu, NotesPage, InputNote, ResultNote, TingkatDua, Logout, LoginPage, menuLogin, Register, WelcomePage, JenisPenyakitJantung, GenderSelect, AlarmObat, AddAlarmObat, AlaramOlahraga, HistoryAlaramOlahraga, RiwayatMedis, AddRiwayatMedis, Artikel, RiwayatTensi, AddTensi, FaseKahamilan, FaseMelahirkan, FaseMenyusui, KalendardanCheklist, KalendarJadwal } from '../pages';
+import { Splash, Home, Account, AccountEdit, TeknisiHome, AccountTeknisi, History, Tumbuhanmu, Quiz, TingkatSatu, NotesPage, InputNote, ResultNote, TingkatDua, Logout, LoginPage, menuLogin, Register, WelcomePage, JenisPenyakitJantung, GenderSelect, AlarmObat, AddAlarmObat, AlaramOlahraga, HistoryAlaramOlahraga, RiwayatMedis, AddRiwayatMedis, Artikel, RiwayatTensi, AddTensi, FaseKahamilan, FaseMelahirkan, FaseMenyusui, KalendardanCheklist, KalendarJadwal, subMenuKehamilan, subMenuMelahirkan, subMenuMenyusui, PerhitunganNifas, Checklist, TambahChecklist, ChecklistIbuHamil, ChecklistIbuMelahirkan, ChecklistIbuMenyusui } from '../pages';
 import { colors } from '../utils';
 import { BottomNavigator, TeknisiBottomNavigator } from '../components';
 import TingkatTiga from '../pages/quiz/tingkattiga';
+import PerhitunganHPL from '../pages/kalendar/hpl';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,7 +23,7 @@ const MainApp = () => {
 
 export default function Router() {
   return (
-    <Stack.Navigator initialRouteName='KalendarJadwal'>
+    <Stack.Navigator initialRouteName='Home'>
       <Stack.Screen
         name="Splash"
         component={Splash}
@@ -66,6 +67,34 @@ export default function Router() {
         }}
       />
 
+
+            
+<Stack.Screen
+        name="SubMenuHamilan"
+        component={subMenuKehamilan}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+<Stack.Screen
+        name="SubMenuMelahirkan"
+        component={subMenuMelahirkan}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+<Stack.Screen
+        name="SubMenuMenyusui"
+        component={subMenuMenyusui}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+
       
 <Stack.Screen
         name="FaseKehamilan"
@@ -103,12 +132,73 @@ export default function Router() {
 
       
 <Stack.Screen
-        name="KalendarJadwal"
+        name="Kalender"
         component={KalendarJadwal}
         options={{
           headerShown: false,
         }}
       />
+
+<Stack.Screen
+        name="PemantauanHPL"
+        component={PerhitunganHPL}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+<Stack.Screen
+        name="PemantauanNifas"
+        component={PerhitunganNifas}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+<Stack.Screen
+        name="Cheklist"
+        component={Checklist}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+<Stack.Screen
+        name="TambahCheklist"
+        component={TambahChecklist}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+<Stack.Screen
+        name="CheklistIbuHamil"
+        component={ChecklistIbuHamil}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+<Stack.Screen
+        name="CheklistIbuMelahirkan"
+        component={ChecklistIbuMelahirkan}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+
+<Stack.Screen
+        name="CheklistIbuMenyusui"
+        component={ChecklistIbuMenyusui}
+        options={{
+          headerShown: false,
+        }}
+      />
+
 
 
 

@@ -247,9 +247,9 @@ export default function Register({ navigation }) {
             <View style={{ padding: 20 }}>
                 <TouchableNativeFeedback onPress={() => navigation.navigate('Register')}>
                     <View>
-                        <Text style={{ fontFamily: fonts.primary[400], textAlign: 'center' }}>
+                        <Text style={{ fontFamily: fonts.primary[400], textAlign: 'center', color:colors.tekscolor }}>
                             Sudah memiliki akun?
-                             <Text style={{ color: colors.white, fontFamily: fonts.primary[600] }}>
+                             <Text style={{ color: colors.tekscolor, fontFamily: fonts.primary[600] }}>
                              Masuk
                             </Text>
                         </Text>

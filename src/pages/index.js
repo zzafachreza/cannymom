@@ -29,7 +29,18 @@ import FaseKahamilan from './Artikel/kehamilan';
 import FaseMelahirkan from './Artikel/melahirkan';
 import FaseMenyusui from './Artikel/menyusui';
 import KalendardanCheklist from './kalendar';
-import KalendarJadwal from './kalendar/jadwal';
+import KalendarJadwal from './kalendar/kalender';
+import subMenuKehamilan from './Artikel/submenukehamilan';
+import subMenuMelahirkan from './Artikel/submenumelahirkan';
+import subMenuMenyusui from './Artikel/submenumenyusui';
+import PerhitunganNifas from './kalendar/nifas';
+import Checklist from './checklist';
+import TambahChecklist from './checklist/add';
+import ChecklistIbuHamil from './checklist/ibuhamil';
+import ChecklistIbuMelahirkan from './checklist/ibumelahirkan';
+import ChecklistIbuMenyusui from './checklist/ibumenyusui';
+
+
 
 
 
@@ -66,7 +77,19 @@ FaseKahamilan,
 FaseMelahirkan,
 FaseMenyusui,
 KalendardanCheklist,
-KalendarJadwal
+KalendarJadwal,
+subMenuKehamilan,
+subMenuMelahirkan,
+subMenuMenyusui,
+PerhitunganNifas,
+Checklist,
+TambahChecklist,
+ChecklistIbuHamil,
+ChecklistIbuMelahirkan,
+ChecklistIbuMenyusui,
+
+
+
 
 
 
