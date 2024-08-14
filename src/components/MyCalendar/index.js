@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import moment from 'moment';
-import { colors, fonts } from '../../utils';
+import { colors, fonts, MyDimensi } from '../../utils';
 
 export default function MyCalendar({
   label,
@@ -43,7 +43,7 @@ export default function MyCalendar({
             },
             dateInput: {
               fontFamily: fonts.secondary[400],
-              fontSize: 16,
+              fontSize: MyDimensi / 2,
               textAlign: 'left',
               alignItems: 'flex-start',
               opacity: 0,
@@ -69,15 +69,15 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   label: {
-    fontFamily: fonts.secondary[600],
+    fontFamily: fonts.primary[600],
     color: colors.tekscolor,
     left: 0,
-    fontSize: 15,
+    fontSize: MyDimensi / 2,
   },
   calendarContainer: {
     backgroundColor: colors.white,
     borderRadius: 10,
-    marginTop: 30,
+    marginTop: 5,
     borderWidth: 1,
     borderColor: '#E7E8EE',
     position: 'relative',
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     top: 15,
     left: 20,
     fontFamily: fonts.secondary[600],
-    fontSize: 16,
+    fontSize: MyDimensi / 2,
     color: colors.tekscolor,
   },
   datePicker: {

@@ -13,15 +13,15 @@ export default function MyButton({
   colorText = colors.white,
   fontWeight = 'normal',
   iconColor = colors.black,
-  borderSize = 0.50,
+  borderSize = 0,
   kiri = true,
   borderColor = colors.black,
 
-  
+
 }) {
   return (
     <TouchableOpacity
-      style={styles(warna, radius, borderSize, borderColor, ).btn}
+      style={styles(warna, radius, borderSize, borderColor,).btn}
       onPress={onPress}>
       {kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 4} />}
       <Text
@@ -30,14 +30,14 @@ export default function MyButton({
 
           marginLeft: kiri ? 5 : 0,
           marginRight: !kiri ? 5 : 0,
-          fontSize: MyDimensi / 4,
+          fontSize: MyDimensi / 2,
           fontFamily: fonts.primary[600],
           // fontWeight: fontWeight,
 
         }}>
         {title}
       </Text>
-      {!kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 4} />}
+      {!kiri && <Icon type="ionicon" name={Icons} color={iconColor} size={MyDimensi / 2} />}
     </TouchableOpacity>
   );
 }

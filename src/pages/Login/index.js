@@ -15,7 +15,7 @@ export default function LoginPage({ navigation }) {
 
   const [kirim, setKirim] = useState({
     api_token: api_token,
-    telepon: null,
+    email: null,
     password: null
   });
   const [loading, setLoading] = useState(false);
@@ -31,10 +31,10 @@ export default function LoginPage({ navigation }) {
   const masuk = () => {
 
 
-    if (kirim.telepon == null && kirim.password == null) {
-      Alert.alert(MYAPP, 'telepon dan Password tidak boleh kosong !');
-    } else if (kirim.telepon == null) {
-      Alert.alert(MYAPP, 'telepon tidak boleh kosong !');
+    if (kirim.email == null && kirim.password == null) {
+      Alert.alert(MYAPP, 'email dan Password tidak boleh kosong !');
+    } else if (kirim.email == null) {
+      Alert.alert(MYAPP, 'email tidak boleh kosong !');
     } else if (kirim.password == null) {
       Alert.alert(MYAPP, 'Password tidak boleh kosong !');
     } else {
@@ -55,7 +55,7 @@ export default function LoginPage({ navigation }) {
             })
           } else {
             storeData('user', res.data.data);
-            navigation.replace('MainApp')
+            navigation.replace('Home')
           }
         });
 
@@ -80,6 +80,7 @@ export default function LoginPage({ navigation }) {
       useNativeDriver: false,
     }).start();
     axios.post(apiURL + 'company').then(res => {
+      console.log(res.data.data)
       setComp(res.data.data);
     })
 
@@ -87,84 +88,86 @@ export default function LoginPage({ navigation }) {
 
   return (
     <ImageBackground source={require('../../assets/bgsplash.png')} style={{
-      flex:1,      
-      width:'100%',
-      height:'100%',
+      flex: 1,
+      width: '100%',
+      height: '100%',
+    }}>
+
+      <ScrollView style={{ position: "relative" }}>
+
+
+        <Animated.View style={{
+          padding: 10,
+          flex: 1, margin: 10,
+          bottom: card,
+          borderRadius: 0,
+
         }}>
 
-    <ScrollView style={{position:"relative"}}>
+          <View style={{ padding: 10, }}>
 
- 
-        <Animated.View style={{
-        padding: 10,
-        flex: 1, margin: 10,
-        bottom: card,
-        borderRadius: 0,
-      
-      }}>
-
-      <View style={{padding:10,}}>
-
-      <View style={{alignContent:'center', alignItems:"center"}}>
-        <Image style={{height:216, width:237}} source={require('../../assets/logo.png')}/>
-      </View>
+            <View style={{ alignContent: 'center', alignItems: "center" }}>
+              <Image style={{ height: 216, width: 237 }} source={require('../../assets/logo.png')} />
+            </View>
 
 
-        <View style={{marginTop:10}}>
-          <Text style={{fontFamily:fonts.primary[600], textAlign:"center",
-          color:colors.tekscolor, fontSize:15}}>Aplikasi Kesehatan Ibu{'\n'}berbasis Fiqih Kasyifatus Saja</Text>
+            <View style={{ marginTop: 10 }}>
+              <Text style={{
+                fontFamily: fonts.primary[600], textAlign: "center",
+                color: colors.tekscolor, fontSize: 15
+              }}>Aplikasi Kesehatan Ibu{'\n'}berbasis Fiqih Kasyifatus Saja</Text>
+            </View>
+
+            <MyGap jarak={0} />
+            <View style={{ padding: 0 }}>
+
+              <MyInput placeholder="Email" onChangeText={x => setKirim({ ...kirim, email: x })} />
+              <MyInput placeholder="Password" secureTextEntry={true} onChangeText={x => setKirim({ ...kirim, password: x })} />
+
+              <View style={{ padding: 10, flexDirection: "row", justifyContent: "flex-end", marginTop: 10 }}>
+                <TouchableWithoutFeedback onPress={() => Linking.openURL('https://wa.me/' + comp.tlp)}>
+                  <Text style={{ fontFamily: fonts.primary[300], fontSize: MyDimensi / 2, }}>Lupa Password</Text>
+                </TouchableWithoutFeedback>
+              </View>
+
+            </View>
+
+          </View>
+
+        </Animated.View>
+        <View style={{ marginTop: 0 }}>
+
         </View>
-  
-            <MyGap jarak={0}/>
-            <View style={{padding:0}}>
 
-            <MyInput placeholder="Username"/>
-            <MyInput placeholder="Password" secureTextEntry={true}/>
 
-            <View style={{padding:10, flexDirection:"row", justifyContent:"flex-end", marginTop: -10}}>
-               <TouchableWithoutFeedback>
-               <Text style={{fontFamily:fonts.primary[300], fontSize:15}}>Lupa Password</Text>
-               </TouchableWithoutFeedback>
-            </View>
-               
-            </View>
-      
+
+
+
+        {loading && <View style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <ActivityIndicator color={colors.secondary} size="large" />
+        </View>}
+      </ScrollView>
+
+      <View style={{ padding: 20 }}>
+        <MyButton title="Masuk" onPress={masuk} />
       </View>
 
-      </Animated.View>
-      <View style={{marginTop:0}}>
 
+      <View style={{ padding: 20 }}>
+        <TouchableNativeFeedback onPress={() => navigation.navigate('Register')}>
+          <View>
+            <Text style={{ fontSize: MyDimensi / 2, fontFamily: fonts.primary[400], textAlign: 'center', color: colors.tekscolor }}>Belum memiliki akun?<Text style={{
+              color: colors.tekscolor, fontFamily: fonts.primary[600]
+            }}> Daftar</Text> </Text>
+          </View>
+        </TouchableNativeFeedback>
       </View>
- 
-
-      
 
 
-      {loading && <View style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <ActivityIndicator color={colors.secondary} size="large" />
-      </View>}
-    </ScrollView>
-
-<View style={{padding:20}}>
-<MyButton title="Masuk"/>
-</View>
-   
-
-            <View style={{padding:20}}>
-            <TouchableNativeFeedback onPress={() => navigation.navigate('Register')}>
-                    <View>
-                        <Text style={{fontFamily:fonts.primary[400], textAlign:'center', color:colors.tekscolor}}>Belum memiliki akun?<Text style={{
-                            color:colors.tekscolor,  fontFamily:fonts.primary[600]
-                        }}> Daftar</Text> </Text>
-                    </View>
-                </TouchableNativeFeedback>
-            </View>
-
-              
     </ImageBackground>
 
 

@@ -154,19 +154,19 @@ export default function ({ navigation, route }) {
                             }}>{user.level}</Text>
                             <View style={{ padding: 10, }}>
                                 <MyList label="Nama Lengkap" value={user.nama_lengkap} />
+                                <MyList label="Tempat Lahir" value={user.tempat_lahir} />
+                                <MyList label="Tanggal Lahir" value={moment(user.tanggal_lahir).format('DD MMMM YYYY')} />
                                 <MyList label="Telepon / Whatsapp" value={user.telepon} />
                                 <MyList label="Alamat" value={user.alamat} />
-                                <MyList label="Kecamatan" value={user.kecamatan} />
-                                <MyList label="Desa" value={user.desa} />
-                                <MyList label="Posyandu" value={user.posyandu} />
 
-                                {user.level == 'IBU' &&
-                                    <>
-                                        <MyList label="Nama Anak" value={user.nama_anak} />
-                                        <MyList label="Tanggal Lahir Anak" value={moment(user.tanggal_lahir).format('DD MMMM YYYY')} />
-                                        <MyList label="Jenis Kelamin" value={user.jenis_kelamin} />
-                                    </>
-                                }
+                                <MyList label="HPL" value={user.hpl !== '0000-00-00' ? moment(user.hpl).format('dddd, DD MMMM YYYY') : '-'} />
+
+
+
+
+
+
+
 
 
                             </View>

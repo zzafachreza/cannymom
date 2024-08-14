@@ -37,7 +37,7 @@ export default function Splash({ navigation }) {
           navigation.replace('Login');
         } else {
           // navigation.replace('GetStarted')
-          navigation.replace('MainApp')
+          navigation.replace('Home')
         }
       })
     }, 1200)
@@ -58,39 +58,39 @@ export default function Splash({ navigation }) {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:colors.white
-      
-      }}>
-     <ImageBackground source={require('../../assets/bguntuksplash.png')}   style={{
-      flex:1,
-      width:'100%',
-      height:'100%',
-      justifyContent: 'center',
-    alignItems: 'center',
-    
-     }}>
-     <Animated.Image
-        source={require('../../assets/logo.png')}
-          resizeMode="contain"
-          style={{
-            width: 397,
-            height: 397,
-           
-          }}
-        />
-        <Animated.Text style={{
-          fontFamily: fonts.primary[600],
-          fontSize: MyDimensi/4,
-          color: colors.loading,
-          marginTop: 10,
-          marginBottom: text,
-          textAlign: 'center',
-        }}>Aplikasi Kesehatan Ibu{'\n'}Berbasis Fiqih Kasyifatus Saja</Animated.Text>
+        backgroundColor: colors.white
 
-        <ActivityIndicator style={{
-          top: -120
-        }} color={colors.loading} size="large" />
-     </ImageBackground>
+      }}>
+        <ImageBackground source={require('../../assets/bguntuksplash.png')} style={{
+          flex: 1,
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+
+        }}>
+          <Animated.Image
+            source={require('../../assets/logo.png')}
+            resizeMode="contain"
+            style={{
+              width: 397,
+              height: 397,
+
+            }}
+          />
+          <Animated.Text style={{
+            fontFamily: fonts.primary[600],
+            fontSize: MyDimensi / 4,
+            color: colors.loading,
+            marginTop: 10,
+            marginBottom: text,
+            textAlign: 'center',
+          }}>Aplikasi Kesehatan Ibu{'\n'}Berbasis Fiqih Kasyifatus Saja</Animated.Text>
+
+          <ActivityIndicator style={{
+            top: -120
+          }} color={colors.loading} size="large" />
+        </ImageBackground>
       </View>
 
 

@@ -8,6 +8,7 @@ import {
     TouchableNativeFeedback,
     Modal,
     Image,
+    Linking,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import { colors } from '../../utils/colors';
@@ -17,15 +18,19 @@ import axios from 'axios';
 import { showMessage } from 'react-native-flash-message';
 import { apiURL, api_token, MYAPP } from '../../utils/localStorage';
 import SweetAlert from 'react-native-sweet-alert';
+import moment from 'moment';
 
 export default function Register({ navigation }) {
     const [loading, setLoading] = useState(false);
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [data, setData] = useState({
         api_token: api_token,
-        namalengkap: '',
+        nama_lengkap: '',
         email: '',
-        nomortelepon: '',
+        tempat_lahir: '',
+        tanggal_lahir: moment().format('YYYY-MM-DD'),
+        telepon: '',
+        alamat: '',
         password: '',
         repassword: '',
     });
@@ -52,8 +57,8 @@ export default function Register({ navigation }) {
         }
 
         if (
-            data.namalengkap.length === 0 ||
-            data.nomortelepon.length === 0 ||
+            data.nama_lengkap.length === 0 ||
+            data.telepon.length === 0 ||
             data.password.length === 0 ||
             data.repassword.length === 0
         ) {
@@ -72,7 +77,7 @@ export default function Register({ navigation }) {
                     textAlign: 'center'
                 },
             });
-        } else if (data.namalengkap.length === 0) {
+        } else if (data.nama_lengkap.length === 0) {
             showMessage({
                 message: 'Masukan nama lengkap ibu',
                 type: 'danger',
@@ -88,9 +93,9 @@ export default function Register({ navigation }) {
                     textAlign: 'center'
                 },
             });
-        } else if (data.nomortelepon.length === 0) {
+        } else if (data.email.length === 0) {
             showMessage({
-                message: 'Masukan nomor telepon',
+                message: 'Masukan email !',
                 type: 'danger',
                 icon: 'danger',
                 duration: 3000,
@@ -137,7 +142,9 @@ export default function Register({ navigation }) {
                 },
             });
         } else {
+            console.log(data)
             setLoading(true);
+
             axios
                 .post(apiURL + 'register', data)
                 .then(res => {
@@ -176,54 +183,55 @@ export default function Register({ navigation }) {
 
     const handleModalClose = () => {
         setModalVisible(false);
-        navigation.navigate('Welcome');
+        navigation.navigate('Login');
     };
 
     return (
-        <ImageBackground 
+        <ImageBackground
             source={require('../../assets/bgsplash.png')}
             style={styles.background}>
             <ScrollView>
                 <View style={styles.formContainer}>
                     <Text style={styles.headerText}>Daftar</Text>
-                    <MyInput 
-                        placeholder="Nama Lengkap" 
-                        value={data.namalengkap} 
-                        onChangeText={(val) => setData({ ...data, namalengkap: val })} 
+                    <MyInput
+                        placeholder="Nama Lengkap"
+                        value={data.nama_lengkap}
+                        onChangeText={(val) => setData({ ...data, nama_lengkap: val })}
                     />
-                    <MyInput 
-                        placeholder="Tempat Lahir" 
-                        value={data.email} 
-                        onChangeText={(val) => setData({ ...data, email: val })} 
+                    <MyInput
+                        placeholder="Tempat Lahir"
+                        value={data.tempat_lahir}
+                        onChangeText={(val) => setData({ ...data, tempat_lahir: val })}
                     />
-                    <MyCalendar placeholder="Tanggal Lahir"/>
+                    <MyCalendar placeholder="Tanggal Lahir" value={data.tanggal_lahir} onDateChange={x => setData({ ...data, tanggal_lahir: x })} />
 
-                    <MyInput 
-                        placeholder="Nomor HP"  
-                        value={data.password} 
-                        onChangeText={(val) => setData({ ...data, password: val })} />
-                    <MyInput 
-                        placeholder="Alamat"  
-                        value={data.password} 
-                        onChangeText={(val) => setData({ ...data, password: val })} />
+                    <MyInput
+                        placeholder="Nomor HP"
+                        keyboardType="phone-pad"
+                        value={data.telepon} telepon
+                        onChangeText={(val) => setData({ ...data, telepon: val })} />
+                    <MyInput
+                        placeholder="Alamat"
+                        value={data.alamat}
+                        onChangeText={(val) => setData({ ...data, alamat: val })} />
 
-                        
-                    <MyInput 
-                        placeholder="Email"  
-                        value={data.password} 
-                        onChangeText={(val) => setData({ ...data, password: val })} />
 
-                    <MyInput 
-                        placeholder="Kata Sandi" 
-                        secureTextEntry={true} 
-                        value={data.password} 
-                        onChangeText={(val) => setData({ ...data, password: val })} 
+                    <MyInput
+                        placeholder="Email"
+                        value={data.email}
+                        onChangeText={(val) => setData({ ...data, email: val })} />
+
+                    <MyInput
+                        placeholder="Kata Sandi"
+                        secureTextEntry={true}
+                        value={data.password}
+                        onChangeText={(val) => setData({ ...data, password: val })}
                     />
-                    <MyInput 
-                        placeholder="Konfirmasi Kata Sandi" 
-                        secureTextEntry={true} 
-                        value={data.repassword} 
-                        onChangeText={(val) => setData({ ...data, repassword: val })} 
+                    <MyInput
+                        placeholder="Konfirmasi Kata Sandi"
+                        secureTextEntry={true}
+                        value={data.repassword}
+                        onChangeText={(val) => setData({ ...data, repassword: val })}
                     />
                     <View style={styles.termsContainer}>
                         <CheckBox
@@ -237,20 +245,20 @@ export default function Register({ navigation }) {
                 </View>
             </ScrollView>
             <View style={{ padding: 10 }}>
-                <MyButton 
-                    title="Simpan" 
-                    onPress={simpan} 
-                    disabled={loading} 
-                    loading={loading} 
+                <MyButton
+                    title="Simpan"
+                    onPress={simpan}
+                    disabled={loading}
+                    loading={loading}
                 />
             </View>
             <View style={{ padding: 20 }}>
-                <TouchableNativeFeedback onPress={() => navigation.navigate('Register')}>
+                <TouchableNativeFeedback onPress={() => navigation.navigate('Login')}>
                     <View>
-                        <Text style={{ fontFamily: fonts.primary[400], textAlign: 'center', color:colors.tekscolor }}>
+                        <Text style={{ fontSize: MyDimensi / 2, fontFamily: fonts.primary[400], textAlign: 'center', color: colors.tekscolor }}>
                             Sudah memiliki akun?
-                             <Text style={{ color: colors.tekscolor, fontFamily: fonts.primary[600] }}>
-                             Masuk
+                            <Text style={{ color: colors.tekscolor, fontFamily: fonts.primary[600] }}>
+                                Masuk
                             </Text>
                         </Text>
                     </View>
@@ -298,6 +306,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         fontFamily: fonts.primary[400],
         color: 'gray',
+        fontSize: MyDimensi / 2,
     },
     centeredView: {
         flex: 1,
@@ -310,7 +319,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 20,
         padding: 35,
-        alignItems: 'center',
+        // alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -324,11 +333,12 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         marginBottom: 15,
+        alignSelf: 'center'
     },
     modalText: {
         marginBottom: 15,
         textAlign: 'center',
         fontFamily: fonts.primary[600],
-        fontSize: 18,
+        fontSize: MyDimensi / 2,
     },
 });

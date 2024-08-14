@@ -105,15 +105,15 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     position: 'relative',
-    marginTop:0
+    marginTop: 0
   },
   textInput: {
     borderRadius: 10,
     paddingLeft: 20,
-    fontSize: MyDimensi / 4,
+    fontSize: MyDimensi / 2,
     fontFamily: fonts.primary[400],
     height: 48,
-   
+
   },
   eyeIcon: {
     position: 'absolute',
