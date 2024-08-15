@@ -89,7 +89,7 @@ export default function ChecklistIbuMenyusui({ route, navigation }) {
         <FlatList data={soal} renderItem={({ item, index }) => {
           return (
             <>
-              {item.kolom == 'kesehatan_1' &&
+              {item.kolom == 'kesehatan_2' &&
 
                 <Text style={{ fontFamily: fonts.primary[600], textAlign: 'center', fontSize: 20, color: colors.tekscolor }}>
                   1)	Periode Nifas

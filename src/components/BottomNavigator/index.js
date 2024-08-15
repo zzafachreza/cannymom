@@ -135,7 +135,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
                 <Icon
                   name={isFocused ? iconName.replace('-outline', '') : iconName}
                   type="ionicon"
-                  size={MyDimensi / 2}
+                  size={MyDimensi / 1.2}
                   color={isFocused ? colors.primary : '#CDCDCD'}
                 />
 

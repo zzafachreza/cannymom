@@ -6,7 +6,7 @@ import { MyGap, MyHeader } from '../../components'
 export default function KalendardanCheklist({ navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: colors.white }}>
-            <MyHeader judul="Kalender & Checklist" />
+            <MyHeader judul="Kalender & Checklist" onPress={() => navigation.goBack()} />
 
             <ScrollView>
                 <View style={{ padding: 10, }}>

@@ -40,6 +40,10 @@ import ChecklistIbuHamil from './checklist/ibuhamil';
 import ChecklistIbuMelahirkan from './checklist/ibumelahirkan';
 import ChecklistIbuMenyusui from './checklist/ibumenyusui';
 import Detail from './checklist/Detail';
+import Informasi from './Home/Informasi';
+import EditHamil from './checklist/EditHamil';
+import EditMenyusui from './checklist/EditMenyusui';
+import EditMelahirkan from './checklist/EditMelahirkan';
 
 
 
@@ -49,6 +53,7 @@ import Detail from './checklist/Detail';
 export {
     Splash,
     Home,
+    Informasi,
     Account,
     AccountEdit,
     Tumbuhanmu,
@@ -89,6 +94,9 @@ export {
     ChecklistIbuMelahirkan,
     ChecklistIbuMenyusui,
     Detail,
+    EditHamil,
+    EditMenyusui,
+    EditMelahirkan
 
 
 

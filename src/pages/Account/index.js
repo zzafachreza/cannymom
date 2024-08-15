@@ -153,6 +153,7 @@ export default function ({ navigation, route }) {
                                 color: colors.primary
                             }}>{user.level}</Text>
                             <View style={{ padding: 10, }}>
+                                <MyList label="Email" value={user.email} />
                                 <MyList label="Nama Lengkap" value={user.nama_lengkap} />
                                 <MyList label="Tempat Lahir" value={user.tempat_lahir} />
                                 <MyList label="Tanggal Lahir" value={moment(user.tanggal_lahir).format('DD MMMM YYYY')} />
@@ -177,10 +178,15 @@ export default function ({ navigation, route }) {
                 <View style={{
                     padding: 20,
                 }}>
-                    <MyButton warna={colors.primary} title="Edit Profile" Icons="create-outline" onPress={() => navigation.navigate('AccountEdit', user)} />
+                    <MyButton warna={colors.primary} title="Edit Profile" onPress={() => navigation.navigate('AccountEdit', user)} />
+
+
                     <MyGap jarak={10} />
-                    <MyButton onPress={btnKeluar} warna={colors.secondary} title="Log Out" Icons="log-out-outline" iconColor={colors.white} colorText={colors.white} />
+                    <MyButton onPress={() => navigation.navigate('Informasi')} warna={colors.secondary} title="Informasi" iconColor={colors.white} colorText={colors.white} />
+                    <MyGap jarak={10} />
+                    <MyButton onPress={btnKeluar} warna={colors.border} title="Keluar" iconColor={colors.white} colorText={colors.white} />
                 </View>
+                <MyGap jarak={40} />
             </ScrollView>
         </SafeAreaView >
     );

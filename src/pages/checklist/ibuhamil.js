@@ -115,6 +115,13 @@ export default function ChecklistIbuHamil({ route, navigation }) {
                 </Text>
               }
 
+
+              {item.kolom == 'kesehatan_14' &&
+                <Text style={{ margin: 10, fontFamily: fonts.primary[600], fontSize: 15, color: colors.tekscolor }}>
+                  Jika Anda Memilih “Ya” Pada Salah Satu Pertanyaan Di Atas, Maka Segera Periksa ke Fasilitas Kesehatan
+                </Text>
+              }
+
               {item.kolom == 'kesehatan_14' &&
                 <Text style={{ margin: 10, fontFamily: fonts.primary[600], fontSize: 15, color: colors.tekscolor }}>
                   •	Nutrisi
@@ -133,7 +140,12 @@ export default function ChecklistIbuHamil({ route, navigation }) {
                   <Text style={{ fontFamily: fonts.primary[400], textAlign: 'justify', fontSize: 12, color: colors.tekscolor }}>
                     {item.soal}
                   </Text>
+
+
+
                 </View>
+
+
 
                 {item.tipe == 'varchar(100)' &&
                   <View style={{ flexDirection: 'row', padding: 10, justifyContent: 'center', alignItems: 'center' }}>
@@ -159,8 +171,10 @@ export default function ChecklistIbuHamil({ route, navigation }) {
                         }}
                       />
                     </View>
+
                   </View>
                 }
+
 
                 {item.tipe !== 'varchar(100)' &&
                   <View style={{ flexDirection: 'row', padding: 10, justifyContent: 'center', alignItems: 'center' }}>
@@ -174,8 +188,12 @@ export default function ChecklistIbuHamil({ route, navigation }) {
                       }}
                     />
 
+
+
                   </View>
                 }
+
+
 
               </View>
 

@@ -10,7 +10,7 @@ export default function MyHeader({ onPress, langkah, judul }) {
   return (
 
 
-    <View  style={{
+    <View style={{
       flexDirection: 'row',
       backgroundColor: colors.primary,
       padding: 5,
@@ -21,31 +21,31 @@ export default function MyHeader({ onPress, langkah, judul }) {
       alignItems: 'center',
       borderBottomWidth: 0,
       borderBottomColor: colors.border,
-      justifyContent:"center",
-      
+      justifyContent: "center",
+
     }}>
-    <View style={{left: -30}}>
-      <TouchableOpacity onPress={onPress} style={{
-        padding: 5,
-      
+      <View style={{ left: -30 }}>
+        <TouchableOpacity onPress={onPress} style={{
+          padding: 5,
+
+        }}>
+          <Icon type='ionicon' name='chevron-back-outline' size={MyDimensi} color={colors.white} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={{
+        left: -10,
+        top: 2,
       }}>
-        <Icon type='ionicon' name='chevron-back-outline' size={MyDimensi / 2} color={colors.white} />
-      </TouchableOpacity>
-    </View>
 
-    <View style={{
-      left:-10,
-      top:2,
-    }}>
-   
 
-      <Text style={{
-        textAlign: 'center',
-        fontFamily: fonts.primary[600],
-        fontSize: 20, 
-        color: colors.white
-      }}>{judul}</Text>
-    </View>
+        <Text style={{
+          textAlign: 'center',
+          fontFamily: fonts.primary[600],
+          fontSize: 20,
+          color: colors.white
+        }}>{judul}</Text>
+      </View>
     </View>
 
   );

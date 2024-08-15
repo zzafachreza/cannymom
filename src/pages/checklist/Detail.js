@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, ScrollView, TouchableNativeFeedback, Modal, TouchableOpacity, Image, FlatList } from 'react-native';
+import { View, Text, ScrollView, TouchableNativeFeedback, Modal, TouchableOpacity, Image, FlatList, Alert } from 'react-native';
 import { colors, fonts } from '../../utils';
 import { MyButton, MyHeader, MyRadio } from '../../components';
 import axios from 'axios';
-import { apiURL } from '../../utils/localStorage';
+import { apiURL, MYAPP } from '../../utils/localStorage';
 import { showMessage } from 'react-native-flash-message';
 import moment from 'moment';
+import { useIsFocused } from '@react-navigation/native';
 
 export default function Detail({ route, navigation }) {
 
@@ -16,11 +17,14 @@ export default function Detail({ route, navigation }) {
     }
 
     const [soal, setSoal] = useState([]);
+    const isFocused = useIsFocused();
 
     useEffect(() => {
-        __getSoal();
-        __getData();
-    }, []);
+        if (isFocused) {
+            __getSoal();
+            __getData();
+        }
+    }, [isFocused]);
 
 
 
@@ -53,6 +57,65 @@ export default function Detail({ route, navigation }) {
     return (
         <View style={{ flex: 1, backgroundColor: colors.white }}>
             <MyHeader onPress={handleBack} judul={'Checklist ibu ' + ITEM.table} />
+
+            <View style={{
+                flexDirection: 'row',
+                marginBottom: 10,
+                padding: 4,
+            }}>
+                <View style={{
+                    flex: 1,
+                    paddingRight: 5,
+                }}>
+                    <MyButton onPress={() => {
+                        Alert.alert(MYAPP, 'Apakah kamu yakin akan hapus ini ?', [
+                            { text: 'TIDAK' },
+                            {
+                                text: 'YA, Hapus',
+                                onPress: () => {
+                                    console.log(ITEM.id);
+                                    axios.post(apiURL + 'delete_ceklis', {
+                                        table: ITEM.table,
+                                        id: ITEM.id
+                                    }).then(res => {
+                                        if (res.data.status == 200) {
+                                            showMessage({
+                                                type: 'success',
+                                                icon: 'success',
+                                                message: res.data.message,
+                                            });
+                                            navigation.goBack();
+                                        }
+                                    })
+                                }
+                            }
+                        ])
+                    }} title="Hapus" warna={colors.danger} />
+                </View>
+                <View style={{
+                    flex: 1,
+                    paddingLeft: 5,
+                }}>
+                    <MyButton title="Edit" onPress={() => {
+                        if (ITEM.table == 'hamil') {
+                            navigation.navigate('EditHamil', {
+                                data: data,
+                                id: ITEM.id
+                            })
+                        } else if (ITEM.table == 'melahirkan') {
+                            navigation.navigate('EditMelahirkan', {
+                                data: data,
+                                id: ITEM.id
+                            })
+                        } else if (ITEM.table == 'menyusui') {
+                            navigation.navigate('EditMenyusui', {
+                                data: data,
+                                id: ITEM.id
+                            })
+                        }
+                    }} warna={colors.secondary} />
+                </View>
+            </View>
             <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F5FCFF', }}>
                 <Text style={{
                     fontFamily: fonts.primary[600],

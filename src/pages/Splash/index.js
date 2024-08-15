@@ -80,7 +80,7 @@ export default function Splash({ navigation }) {
           />
           <Animated.Text style={{
             fontFamily: fonts.primary[600],
-            fontSize: MyDimensi / 4,
+            fontSize: MyDimensi / 1.5,
             color: colors.loading,
             marginTop: 10,
             marginBottom: text,

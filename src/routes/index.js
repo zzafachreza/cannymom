@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Alert, BackHandler } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Splash, Home, Account, AccountEdit, TeknisiHome, AccountTeknisi, History, Tumbuhanmu, Quiz, TingkatSatu, NotesPage, InputNote, ResultNote, TingkatDua, Logout, LoginPage, menuLogin, Register, WelcomePage, JenisPenyakitJantung, GenderSelect, AlarmObat, AddAlarmObat, AlaramOlahraga, HistoryAlaramOlahraga, RiwayatMedis, AddRiwayatMedis, Artikel, RiwayatTensi, AddTensi, FaseKahamilan, FaseMelahirkan, FaseMenyusui, KalendardanCheklist, KalendarJadwal, subMenuKehamilan, subMenuMelahirkan, subMenuMenyusui, PerhitunganNifas, Checklist, TambahChecklist, ChecklistIbuHamil, ChecklistIbuMelahirkan, ChecklistIbuMenyusui, Detail } from '../pages';
+import { Splash, Home, Account, AccountEdit, TeknisiHome, AccountTeknisi, History, Tumbuhanmu, Quiz, TingkatSatu, NotesPage, InputNote, ResultNote, TingkatDua, Logout, LoginPage, menuLogin, Register, WelcomePage, JenisPenyakitJantung, GenderSelect, AlarmObat, AddAlarmObat, AlaramOlahraga, HistoryAlaramOlahraga, RiwayatMedis, AddRiwayatMedis, Artikel, RiwayatTensi, AddTensi, FaseKahamilan, FaseMelahirkan, FaseMenyusui, KalendardanCheklist, KalendarJadwal, subMenuKehamilan, subMenuMelahirkan, subMenuMenyusui, PerhitunganNifas, Checklist, TambahChecklist, ChecklistIbuHamil, ChecklistIbuMelahirkan, ChecklistIbuMenyusui, Detail, Informasi, EditHamil, EditMelahirkan, EditMenyusui } from '../pages';
 import { colors } from '../utils';
 import { BottomNavigator, TeknisiBottomNavigator } from '../components';
 import TingkatTiga from '../pages/quiz/tingkattiga';
@@ -35,6 +35,37 @@ export default function Router() {
       <Stack.Screen
         name="Detail"
         component={Detail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="Informasi"
+        component={Informasi}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="EditHamil"
+        component={EditHamil}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="EditMelahirkan"
+        component={EditMelahirkan}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="EditMenyusui"
+        component={EditMenyusui}
         options={{
           headerShown: false,
         }}
