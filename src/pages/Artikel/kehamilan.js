@@ -53,7 +53,7 @@ export default function FaseKahamilan({ route, navigation }) {
                                     1. Darah haidh berwarna hitam, darah istihadhah berwarna merah mengarah ke arah kuning.{'\n'}
                                     2. Darah haidh itu kental, sedangkan darah istihadhah itu encer.{'\n'}
                                     3. Darah haidh itu baunya khas, sedangkan darah istihadhah tidak memiliki bau.{'\n'}
-                                    4. Darah haidh tidak membeku{'\n'}
+                                    4. Darah haidh tidak membeku, sedangkan darah istihadhah bisa membeku{'\n'}
                                 </Text>
                             </View>
 

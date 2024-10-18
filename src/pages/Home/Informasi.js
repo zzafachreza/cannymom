@@ -37,7 +37,7 @@ export default function Informasi({ navigation }) {
                     WAWASAN
 
                 </Text>
-                <Text style={{ fontFamily: fonts.primary[400], fontSize: MyDimensi / 2.5, lineHeight: 20, textAlign: 'justify' }}>
+                <Text style={{ fontFamily: fonts.primary[400], color: colors.primary, fontSize: MyDimensi / 2.5, lineHeight: 20, textAlign: 'justify' }}>
                     Fitur ini berisikan beberapa panduan, informasi, dan amalan yang terpercaya sumbernya berdasar kitab fiqih Kasyifatussaja mengenai kehamilan, melahirkan, dan menyusui
 
                 </Text>
